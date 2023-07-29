@@ -1,0 +1,159 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+.bg-gray {
+  background-color: #fbfbfe;
+}
+
+.bg-darkGray {
+  background-color: #b5b5c3;
+}
+
+.bg-blue {
+  background-color: #00b2ff;
+}
+
+.bg-input {
+  background-color: #f5f8fa;
+}
+
+.form-control-solid {
+  background-color: #f5f8fa;
+  border-color: #f5f8fa;
+  color: #5e6278;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.container-fluid {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+tbody tr:last-child {
+  border-bottom: 1px solid white;
+}
+
+h5 {
+  font-size: 19.5px;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/* Modal */
+
+.custom-modal-dialog {
+  max-width: 650px;
+  height: 500px;
+  width: 75%;
+  overflow: hidden;
+}
+.custom-modal-content {
+  height: 610px;
+}
+
+label {
+  font-size: 14px;
+}
+.required::after {
+  content: " *";
+  color: #f1416c;
+}
+
+.form-inputs {
+  overflow-y: scroll;
+  height: 380px;
+  padding-bottom: 35px;
+}
+
+.form-inputs span {
+  color: #f1416c;
+  font-size: 12.5px;
+  padding-top: 3px;
+  margin-left: 2px;
+  display: block;
+}
+
+.form-inputs input,
+.form-inputs select {
+  padding: 10px 13px;
+  color: #5e6278;
+  font-weight: 400;
+}
+
+.form-inputs select {
+  background-color: #f5f8fa;
+  border: none;
+}
+
+.form-inputs input:focus,
+select:focus {
+  background-color: #eef3f7;
+}
+
+.form-control:focus {
+  outline: none;
+}
+
+.model-footer-container {
+  width: 40%;
+  margin: auto;
+  height: 20px;
+}
+
+.modal-footer,
+.modal-header {
+  border-color: #f6f6f8;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #e9edf1;
+}
+
+/* Thumb on hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #e4e7eb; /* Color of the thumb on hover */
+}
+
+/* Track when scrollbar is in a "pressed" state */
+::-webkit-scrollbar-thumb:active {
+  background-color: #e4e7eb; /* Color of the thumb when pressed */
+}
+::-webkit-scrollbar {
+  height: 4px;
+}
+
+.svg-icon:hover {
+  color: #00b2ff;
+  cursor: pointer;
+}
+
+.model-footer-container button {
+  padding: 10px 15px;
+}
+
+#btn-reset:hover {
+  background-color: #eff2f5;
+}

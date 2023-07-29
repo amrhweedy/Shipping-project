@@ -1,0 +1,81 @@
+<nav
+  class="navbar navbar-expand-md bg-body-tertiary px-4 mb-3 border-bottom fixed-top shadow-sm bg-dark text-light"
+>
+  <div class="container-fluid">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarsExample10"
+      aria-controls="navbarsExample10"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div
+      class="fs-3 text-light"
+      *ngIf="role == 'trader' || role == 'salesrepresentative'"
+    >
+      <a class="nav-link text-info mx-5"> CargoSwift </a>
+    </div>
+    <div
+      class="fs-3 text-light ms-5 ps-5"
+      *ngIf="role == 'employee' || role == 'admin'"
+    >
+      <a routerLink="/dashboard" class="nav-link text-info mx-5">
+        CargoSwift
+      </a>
+    </div>
+
+    <div
+      class="collapse navbar-collapse justify-content-md-center fs-5 menu-desktop"
+      id="navbarsExample10"
+    >
+      <ul class="navbar-nav main-menu" *ngIf="role == 'trader'">
+        <li class="nav-item px-2">
+          <a class="nav-link" routerLink="order/list/trader">Orders</a>
+        </li>
+
+        <li class="nav-item px-2">
+          <a class="nav-link" routerLink="order/states/trader">Orders States</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav main-menu" *ngIf="role == 'salesrepresentative'">
+        <li class="nav-item px-2">
+          <a class="nav-link" routerLink="order/list/sales">Orders</a>
+        </li>
+
+        <li class="nav-item px-2">
+          <a class="nav-link" routerLink="order/states/sales">Orders States</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav main-menu" *ngIf="role == 'employee'">
+        <li class="nav-item px-2"></li>
+      </ul>
+      <ul class="navbar-nav main-menu" *ngIf="role == 'admin'">
+        <li class="nav-item px-2"></li>
+      </ul>
+    </div>
+
+    <div class="ms-4">
+      <button class="btn text-info fs-4" (click)="logout()">
+        <i class="bi bi-box-arrow-in-right"></i>
+      </button>
+    </div>
+    <div
+      class="cursor-pointer symbol symbol-35px symbol-md-40px"
+      data-kt-menu-trigger="click"
+      data-kt-menu-attach="parent"
+      data-kt-menu-placement="bottom-end"
+    >
+      <img
+        src="assets/Images/Users/NavImage.jpg"
+        alt="user"
+        width="50"
+        height="50"
+        class="rounded"
+      />
+    </div>
+  </div>
+</nav>

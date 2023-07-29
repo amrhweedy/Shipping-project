@@ -1,0 +1,322 @@
+<div class="vh-100 p-4 bg-gray">
+  <div class="container bg-white p-3 my-5 rounded">
+    <div class="table">
+      <form [formGroup]="editPrivilegeForm"  (ngSubmit)="onsubmit()">
+        <div class="form-group">
+          <input
+            type="text"
+            id="name"
+            class="form-control w-25 my-1"
+            formControlName="name"
+            class="form-control-solid border-0 mt-3 rounded-2"
+            style="padding: 12px 70px"
+            placeholder="privilege name"
+          />
+
+          <span
+            *ngIf="
+              editPrivilegeForm.get('name')?.invalid &&
+              editPrivilegeForm.get('name')?.touched
+            "
+          >
+            Privellge name is required
+          </span>
+        </div>
+        <thead>
+          <tr>
+            <th>Privllge</th>
+            <th class="text-center">Read</th>
+            <th class="text-center">Add</th>
+            <th class="text-center">Update</th>
+            <th class="text-center">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <label class="me-5">Government</label>
+            </td>
+            <td>
+              <input
+                type="checkbox"
+                class="form-check-input p-2 mx-9"
+                formControlName="permission.goverments.read"
+              />
+            </td>
+            <td>
+              <input
+                type="checkbox"
+                class="form-check-input p-2 mx-9"
+                formControlName="permission.goverments.add"
+              />
+            </td>
+            <td>
+              <input
+                type="checkbox"
+                class="form-check-input p-2 mx-9"
+                formControlName="permission.goverments.update"
+              />
+            </td>
+            <td>
+              <input
+                type="checkbox"
+                class="form-check-input p-2 mx-9"
+                formControlName="permission.goverments.delete"
+              />
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <label>City</label>
+            </td>
+            <td>
+              <input
+                type="checkbox"
+                class="form-check-input p-2 mx-9"
+                formControlName="permission.cities.read"
+              />
+            </td>
+            <td>
+              <input
+                type="checkbox"
+                class="form-check-input p-2 mx-9"
+                formControlName="permission.cities.add"
+              />
+            </td>
+            <td>
+              <input
+                type="checkbox"
+                class="form-check-input p-2 mx-9"
+                formControlName="permission.cities.update"
+              />
+            </td>
+            <td>
+              <input
+                type="checkbox"
+                class="form-check-input p-2 mx-9"
+                formControlName="permission.cities.delete"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>Trader</label>
+            </td>
+            <td>
+              <input
+                type="checkbox"
+                class="form-check-input p-2 mx-9"
+                formControlName="permission.traders.read"
+              />
+            </td>
+            <td>
+              <input
+                type="checkbox"
+                class="form-check-input p-2 mx-9"
+                formControlName="permission.traders.add"
+              />
+            </td>
+            <td>
+              <input
+                type="checkbox"
+                class="form-check-input p-2 mx-9"
+                formControlName="permission.traders.update"
+              />
+            </td>
+            <td>
+              <input
+                type="checkbox"
+                class="form-check-input p-2 mx-9"
+                formControlName="permission.traders.delete"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>Employee</label>
+            </td>
+            <td>
+              <input
+                type="checkbox"
+                class="form-check-input p-2 mx-9"
+                formControlName="permission.employees.read"
+              />
+            </td>
+            <td>
+              <input
+                type="checkbox"
+                class="form-check-input p-2 mx-9"
+                formControlName="permission.employees.add"
+              />
+            </td>
+            <td>
+              <input
+                type="checkbox"
+                class="form-check-input p-2 mx-9"
+                formControlName="permission.employees.update"
+              />
+            </td>
+            <td>
+              <input
+                type="checkbox"
+                class="form-check-input p-2 mx-9"
+                formControlName="permission.employees.delete"
+              />
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <label>Branch</label>
+            </td>
+            <td>
+              <input
+                type="checkbox"
+                class="form-check-input p-2 mx-9"
+                formControlName="permission.branches.read"
+              />
+            </td>
+            <td>
+              <input
+                type="checkbox"
+                class="form-check-input p-2 mx-9"
+                formControlName="permission.branches.add"
+              />
+            </td>
+            <td>
+              <input
+                type="checkbox"
+                class="form-check-input p-2 mx-9"
+                formControlName="permission.branches.update"
+              />
+            </td>
+            <td>
+              <input
+                type="checkbox"
+                class="form-check-input p-2 mx-9"
+                formControlName="permission.branches.delete"
+              />
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <label>Sales</label>
+            </td>
+            <td>
+              <input
+                type="checkbox"
+                class="form-check-input p-2 mx-9"
+                formControlName="permission.sales.read"
+              />
+            </td>
+            <td>
+              <input
+                type="checkbox"
+                class="form-check-input p-2 mx-9"
+                formControlName="permission.sales.add"
+              />
+            </td>
+            <td>
+              <input
+                type="checkbox"
+                class="form-check-input p-2 mx-9"
+                formControlName="permission.sales.update"
+              />
+            </td>
+            <td>
+              <input
+                type="checkbox"
+                class="form-check-input p-2 mx-9"
+                formControlName="permission.sales.delete"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>Order</label>
+            </td>
+            <td>
+              <input
+                type="checkbox"
+                class="form-check-input p-2 mx-9"
+                formControlName="permission.orders.read"
+              />
+            </td>
+            <td>
+              <input
+                type="checkbox"
+                class="form-check-input p-2 mx-9"
+                formControlName="permission.orders.add"
+              />
+            </td>
+            <td>
+              <input
+                type="checkbox"
+                class="form-check-input p-2 mx-9"
+                formControlName="permission.orders.update"
+              />
+            </td>
+            <td>
+              <input
+                type="checkbox"
+                class="form-check-input p-2 mx-9"
+                formControlName="permission.orders.delete"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>Privilege</label>
+            </td>
+            <td>
+              <input
+                type="checkbox"
+                class="form-check-input p-2 mx-9"
+                formControlName="permission.permissions.read"
+              />
+            </td>
+            <td>
+              <input
+                type="checkbox"
+                class="form-check-input p-2 mx-9"
+                formControlName="permission.permissions.add"
+              />
+            </td>
+            <td>
+              <input
+                type="checkbox"
+                class="form-check-input p-2 mx-9"
+                formControlName="permission.permissions.update"
+              />
+            </td>
+            <td>
+              <input
+                type="checkbox"
+                class="form-check-input p-2 mx-9"
+                formControlName="permission.permissions.delete"
+              />
+            </td>
+          </tr>
+
+          <div class="form-group d-inline">
+            <button class="btn bg-blue text-white" type="submit">Submit</button>
+          </div>
+
+          <div class="form-group d-inline">
+            <a routerLink="/home/privilege">
+              <button
+                class="btn btn-back bg-gray"
+                type="submit"
+                style="color: #7e8299"
+              >
+                Back
+              </button>
+            </a>
+          </div>
+        </tbody>
+      </form>
+    </div>
+  </div>
+</div>

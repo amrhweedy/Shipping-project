@@ -1,0 +1,52 @@
+<div class="container mt-5">
+  <div class="d-flex justify-content-center p-3">
+    <div class="card bg-white shadow p-3 rounded border-0" style="width: 30rem">
+      <h1 class="py-4 fw-bold text-center">Sign In to CargoSwift</h1>
+
+      <div class="rounded-circle d-flex justify-content-center">
+        <img src="assets/Images/Logos/login.png" width="250px" height="200px" />
+      </div>
+      <form [formGroup]="loginForm" (ngSubmit)="login()" class="px-5 py-3">
+        <mat-form-field class="w-100 mb-2">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" required />
+          <mat-error
+            *ngIf="
+              loginForm.get('email')?.invalid &&
+              (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)
+            "
+          >
+            Please Enter a valid Username.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="w-100 mb-2">
+          <mat-label>Password</mat-label>
+          <input type="password" matInput formControlName="password" required />
+          <mat-error
+            *ngIf="
+              loginForm.get('password')?.invalid &&
+              (loginForm.get('password')?.dirty ||
+                loginForm.get('password')?.touched)
+            "
+          >
+            Please Enter a valid Password.
+          </mat-error>
+        </mat-form-field>
+
+        <div *ngIf="error" class="error text-danger text-center mb-2">
+          {{ error }}
+        </div>
+
+        <div class="d-flex justify-content-center mb-5">
+          <button
+            class="btn btn-info text-light fs-5 px-5 py-2 w-100"
+            type="submit"
+          >
+            Login
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

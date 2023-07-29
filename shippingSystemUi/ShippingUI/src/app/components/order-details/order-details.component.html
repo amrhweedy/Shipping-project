@@ -1,0 +1,49 @@
+<div class="container m-3">
+  <h2 mat-dialog-title class="text-center">Order details</h2>
+  <mat-dialog-content>
+    <div><strong>Customer Name:</strong> {{ order.customer.name }}</div>
+    <div><strong>Phone Number:</strong> {{ order.customer.phone1 }}</div>
+    <div><strong>Email:</strong> {{ order.customer.email }}</div>
+    <div><strong>Government:</strong> {{ order.customer.goverment }}</div>
+    <div><strong>City:</strong> {{ order.customer.city }}</div>
+    <h1 class="mx-3 my-5">Products</h1>
+    <div>
+      <table class="table text-center">
+        <thead class="table-info">
+          <tr>
+            <th class="equal-width-cell">Product Name</th>
+            <th class="equal-width-cell">Quantity</th>
+            <th class="equal-width-cell">Price</th>
+            <th class="equal-width-cell">Weight</th>
+          </tr>
+        </thead>
+        <tbody
+          formArrayName="products"
+          *ngFor="let product of order.products; let i = index"
+        >
+          <tr>
+            <td>{{ product.productName }}</td>
+            <td>
+              <div class="formbold-form-div">
+                {{ product.quantity }}
+              </div>
+            </td>
+            <td>
+              <div class="formbold-form-div">
+                {{ product.price }}
+              </div>
+            </td>
+            <td>
+              <div class="formbold-form-div">
+                {{ product.weight }}
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions class="d-flex justify-content-center">
+    <button mat-button (click)="cancel()">Close</button>
+  </mat-dialog-actions>
+</div>

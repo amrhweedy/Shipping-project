@@ -1,0 +1,43 @@
+<div class="container mt-5">
+  <div class="d-flex justify-content-center">
+    <form
+      [formGroup]="weightForm"
+      (ngSubmit)="AddWeightOptions()"
+    >
+      <h2 mat-dialog-title class="d-flex justify-content-center">
+        Add Weight Options Cost
+      </h2>
+      <mat-dialog-content>
+        <mat-form-field class="w-100 mb-2">
+          <mat-label>Weight from 5Kg to </mat-label>
+          <input matInput type="number" formControlName="weight" required />
+          <mat-error
+            *ngIf="
+              weightForm.get('weight')?.invalid &&
+              (weightForm.get('weight')?.dirty ||
+                weightForm.get('weight')?.touched)
+            "
+          >
+            Please Enter a valid Weight.
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="w-100 mb-2">
+          <mat-label>Cost per KG</mat-label>
+          <input matInput type="number" formControlName="cost" required />
+          <mat-error
+            *ngIf="
+              weightForm.get('cost')?.invalid &&
+              (weightForm.get('cost')?.dirty || weightForm.get('cost')?.touched)
+            "
+          >
+            Please Enter a valid Weight.
+          </mat-error>
+        </mat-form-field>
+      </mat-dialog-content>
+      <mat-dialog-actions class="d-flex justify-content-center">
+        <button mat-button type="submit" color="primary">Save</button>
+        <button mat-button (click)="cancel()">Cancel</button>
+      </mat-dialog-actions>
+    </form>
+  </div>
+</div>

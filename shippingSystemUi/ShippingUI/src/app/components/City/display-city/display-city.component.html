@@ -1,0 +1,309 @@
+<div class="vh-100 p-4">
+  <h5 class="mb-5 pb-4 fw-medium" style="font-size: 19.5px">Cities Listing</h5>
+  <div class="container bg-white p-3 my-5 rounded">
+    <div class="row py-3">
+      <div class="col-md-8">
+        <span class="form-control w-250px py-1 form-control-solid ms-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+          >
+            <rect
+              opacity="0.5"
+              x="17.0365"
+              y="15.1223"
+              width="8.15546"
+              height="2"
+              rx="1"
+              transform="rotate(45 17.0365 15.1223)"
+              fill="currentColor"
+            ></rect>
+            <path
+              d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z"
+              fill="currentColor"
+            ></path>
+          </svg>
+          <input
+            type="text"
+            placeholder="Search Cities"
+            class="d-inline form-control-solid border-0 px-2"
+            style="outline: 0; padding: 5px 0px"
+            (input)="onInputChange($event)"
+          />
+        </span>
+      </div>
+      <div class="col-md-4 ps-4 pe-5" style="text-align: end">
+        <button
+          class="btn d-inline bg-blue text-white p-2 px-3 me-2"
+          (click)="openModal(0)"
+        >
+          Add City
+        </button>
+      </div>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Normal Shipping Cost</th>
+          <!-- <th>Pickup Shipping Cost</th> -->
+          <th>Government</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let city of filteredData; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td class="emp-name">{{ city.cityName }}</td>
+          <td>{{ city.normalShippingCost }}</td>
+          <!-- <td>{{ city.pickupShippingCost }}</td> -->
+          <td>{{ city.govermentName }}</td>
+          <td>
+            <button
+              class="btn bg-blue text-white"
+              (click)="openModal(city.cityId)"
+            >
+              Edit
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="page-indexer d-flex justify-content-end me-10">
+      <nav aria-label="Page navigation example ">
+        <ul class="pagination">
+          <li class="page-item">
+            <button
+              [disabled]="$page === 1 || $totalItems === 0"
+              (click)="getPaginatedData($page - 1)"
+              class="page-link border-none"
+              href="#"
+              aria-label="Previous"
+              style="color: #7e8299"
+            >
+              <span aria-hidden="true" style="color: #7e8299">&laquo;</span>
+              <span class="sr-only" style="color: #7e8299"> Previous</span>
+            </button>
+          </li>
+
+          <li class="page-item">
+            <button
+              [disabled]="$page * $pageSize >= $totalItems || $totalItems === 0"
+              (click)="getPaginatedData($page + 1)"
+              class="page-link"
+              style="color: #7e8299"
+              href="#"
+              aria-label="Next"
+            >
+              <span class="sr-only" style="color: #7e8299">Next </span>
+              <span aria-hidden="true" style="color: #7e8299">&raquo;</span>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="cityModel"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true"
+>
+  <div
+    class="modal-dialog custom-modal-dialog modal-dialog-centered"
+    role="document"
+  >
+    <div class="modal-content custom-modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title ps-2 pt-1 fw-medium" id="exampleModalLongTitle">
+          <span>{{ allowEdit ? "Edit City" : "Add City" }}</span>
+        </h2>
+        <span (click)="close()" class="svg-icon svg-icon-1"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+          >
+            <rect
+              opacity="0.5"
+              x="6"
+              y="17.3137"
+              width="16"
+              height="2"
+              rx="1"
+              transform="rotate(-45 6 17.3137)"
+              fill="currentColor"
+            ></rect>
+            <rect
+              x="7.41422"
+              y="6"
+              width="16"
+              height="2"
+              rx="1"
+              transform="rotate(45 7.41422 6)"
+              fill="currentColor"
+            ></rect></svg
+        ></span>
+      </div>
+      <div class="modal-body p-0">
+        <div class="modal-body py-10">
+          <!--begin::Scroll-->
+          <div
+            class="scroll-y me-n7 pe-7"
+            id="kt_modal_add_customer_scroll"
+            data-kt-scroll="true"
+            data-kt-scroll-activate="{default: false, lg: true}"
+            data-kt-scroll-max-height="auto"
+            data-kt-scroll-dependencies="#kt_modal_add_customer_header"
+            data-kt-scroll-wrappers="#kt_modal_add_customer_scroll"
+            data-kt-scroll-offset="300px"
+            style="max-height: 92px"
+          >
+            <form [formGroup]="cityForm" (ngSubmit)="onsubmit()">
+              <div class="form-inputs px-5">
+                <div class="fv-row mb-7 fv-plugins-icon-container form-group">
+                  <label class="required fw-medium mb-2 mt-3">Name</label>
+
+                  <input
+                    type="text"
+                    id="name"
+                    class="form-control form-control-solid"
+                    formControlName="cityName"
+                    placeholder=""
+                    fdprocessedid="8gp9el"
+                  />
+                  <span
+                    *ngIf="
+                      cityForm.get('cityName')?.invalid &&
+                      cityForm.get('cityName')?.touched
+                    "
+                  >
+                    City name is required
+                  </span>
+                </div>
+
+                <div class="fv-row mb-7 fv-plugins-icon-container form-group">
+                  <label class="required fw-medium mb-2 mt-3"
+                    >Normal Shipping Cost</label
+                  >
+
+                  <input
+                    type="text"
+                    id="normalCost"
+                    class="form-control form-control-solid"
+                    formControlName="normalShippingCost"
+                    placeholder=""
+                    fdprocessedid="8gp9el"
+                  />
+                  <span
+                    *ngIf="
+                      cityForm.get('normalShippingCost')?.invalid &&
+                      cityForm.get('normalShippingCost')?.touched
+                    "
+                  >
+                    Normal Shipping Cost is required
+                  </span>
+                </div>
+
+                <div class="fv-row mb-7 fv-plugins-icon-container form-group ">
+                  <label class="required fw-medium mb-2 mt-3"
+                    >Pickup Shipping Cost</label
+                  >
+
+                  <input
+                    type="text"
+                    id="normalCost"
+                    class="form-control form-control-solid"
+                    formControlName="pickupShippingCost"
+                    placeholder=""
+                    fdprocessedid="8gp9el"
+                  />
+                  <span
+                    *ngIf="
+                      cityForm.get('pickupShippingCost')?.invalid &&
+                      cityForm.get('pickupShippingCost')?.touched
+                    "
+                  >
+                    Pickup Shipping Cost is required
+                  </span>
+                </div>
+
+                <div class="fv-row mb-7 fv-plugins-icon-container form-group">
+                  <label class="required fw-medium mb-2 mt-4"
+                    >Governments</label
+                  >
+                  <select
+                    formControlName="governmentId"
+                    class="form-select form-select-solid fw-bolder select2-hidden-accessible"
+                  >
+                    <option value="" data-select2-id="select2-data-22-5c0i">
+                      Select a goverment...
+                    </option>
+                    <option
+                      *ngFor="let item of governments"
+                      [value]="item.goverment_Id"
+                    >
+                      {{ item.govermentName }}
+                    </option>
+                  </select>
+
+                  <span
+                    *ngIf="
+                      cityForm.get('governmentId')?.invalid &&
+                      cityForm.get('governmentId')?.touched
+                    "
+                  >
+                    Government is required
+                  </span>
+                </div>
+              </div>
+
+              <div class="modal-footer mt-4">
+                <div class="model-footer-container pt-3">
+                  <button
+                    type="reset"
+                    id="kt_modal_add_customer_cancel"
+                    class="btn me-3 ms-3 bg-gray"
+                    style="color: #7e8299"
+                    id="btn-reset"
+                    (click)="close()"
+                  >
+                    Discard
+                  </button>
+
+                  <button
+                    type="submit"
+                    id="kt_modal_add_customer_submit"
+                    class="btn btn-primary bg-blue border-0"
+                    [ngClass]="allowEdit ? 'd-none' : ''"
+                  >
+                    <span class="indicator-label"> Submit </span>
+                  </button>
+                  <button
+                    type="submit"
+                    id="kt_modal_add_customer_submit"
+                    class="btn btn-primary bg-blue border-0"
+                    [ngClass]="!allowEdit ? 'd-none' : ''"
+                  >
+                    <span class="indicator-label"> Edit </span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

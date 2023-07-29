@@ -1,0 +1,22 @@
+<div class="container mt-5 pt-5">
+  <div class="row">
+    <div class="col-lg-4" *ngFor="let state of orderStatusCounts | keyvalue">
+      <div
+        class="card shadow p-3 mb-5 bg-white rounded border-0"
+        style="width: 23rem"
+      >
+        <div class="card-body">
+          <div class="d-flex justify-content-between">
+            <h3 class="card-title p-2">{{ state.key }}</h3>
+            <h1
+              class="card-title justify-content-end text-light rounded-circle bg-info p-2"
+            >
+              <i class="bi bi-bag"></i>
+            </h1>
+          </div>
+          <p class="card-text p-2 mx-3">{{ state.value }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

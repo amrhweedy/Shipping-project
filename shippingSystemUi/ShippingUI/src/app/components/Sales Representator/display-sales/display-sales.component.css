@@ -1,0 +1,87 @@
+.w-250px {
+  width: 250px;
+}
+
+.w-130px {
+  width: 130px;
+}
+
+th {
+  color: #b5b5c3;
+  font-size: 13px;
+  padding-left: 15px;
+}
+
+.emp-name {
+  color: #3f4254;
+  font-size: 14px;
+}
+
+.me-10 {
+  margin-right: 130px;
+}
+
+td {
+  color: #7e8299;
+  font-size: 14px;
+  padding: 25px 0px 25px 15px;
+  font-weight: 500;
+}
+
+th,
+td {
+  border-style: dashed;
+}
+
+.w-icon {
+  width: 15px;
+}
+
+.btn {
+  font-weight: 400;
+}
+
+.btn:hover {
+  background-color: #0098da;
+}
+
+.active {
+  color: #50cd89;
+  background-color: #e8fff3;
+}
+
+.locked {
+  color: #f1416c;
+  background-color: #fff5f8;
+}
+
+.active,
+.locked {
+  padding: 1.2px 6px;
+  border-radius: 2px;
+}
+
+.w-95px {
+  width: 95px;
+}
+
+.actions-select {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.container {
+  box-shadow: 0px 10px 35px 0px rgba(56, 71, 109, 0.075);
+}
+
+input::placeholder {
+  color: #5e6278;
+}
+
+::ng-deep .mat-paginator-range-label {
+  display: none;
+}
+
+.mat-mdc-paginator-page-size {
+  margin-right: 800px;
+}

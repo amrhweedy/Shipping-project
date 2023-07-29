@@ -1,0 +1,82 @@
+<div class="vh-100 p-4">
+  <h5 class="mb-5 pb-4 fw-medium" style="font-size: 19.5px">
+    Privilages Listing
+  </h5>
+  <div class="container bg-white p-3 my-5 rounded">
+    <div class="row py-3">
+      <div class="col-md-8">
+        <span class="form-control w-250px py-1 form-control-solid ms-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+          >
+            <rect
+              opacity="0.5"
+              x="17.0365"
+              y="15.1223"
+              width="8.15546"
+              height="2"
+              rx="1"
+              transform="rotate(45 17.0365 15.1223)"
+              fill="currentColor"
+            ></rect>
+            <path
+              d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z"
+              fill="currentColor"
+            ></path>
+          </svg>
+          <input
+            type="text"
+            placeholder="Search Permissions"
+            class="d-inline form-control-solid border-0 px-2"
+            style="outline: 0; padding: 5px 0px"
+            (input)="onInputChange($event)"
+          />
+        </span>
+      </div>
+      <div 
+       class="col-md-4 ps-4 pe-5" style="text-align: end">
+        <button (click)="onAdd()"  class="btn d-inline bg-blue text-white p-2 px-3 me-5">
+          Add Privilage
+        </button>
+      </div>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let privellge of filteredData; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td class="emp-name">{{ privellge?.name }}</td>
+          <td>{{ privellge?.date }}</td>
+          <td>
+            <select 
+              class="form-control form-select form-control-solid actions-select w-95px d-inline mx-3"
+              (change)="onOptionSelected($event)"
+            >
+              <option>Action</option>
+              <option 
+               value="edit/{{ privellge?.id }}" >Edit</option>
+              <option
+              
+                value="{{ privellge?.id }} "
+                (click)="deletePrivilege(privellge?.id!)"
+              >
+                Delete
+              </option>
+            </select>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

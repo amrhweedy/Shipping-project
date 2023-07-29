@@ -1,0 +1,109 @@
+.w-250px {
+  width: 250px;
+}
+
+.w-150px {
+  width: 150px;
+}
+
+th {
+  color: #b5b5c3;
+  font-size: 13px;
+}
+
+.emp-name {
+  color: #3f4254;
+  font-size: 14px;
+}
+
+td {
+  color: #7e8299;
+  font-size: 14px;
+  padding: 25px 0px;
+  font-weight: 500;
+}
+
+th,
+td {
+  border-style: dashed;
+}
+.active {
+  color: #50cd89;
+  background-color: #e8fff3;
+}
+
+.locked {
+  color: #f1416c;
+  background-color: #fff5f8;
+}
+
+.active,
+.locked {
+  padding: 1.2px 6px;
+  border-radius: 2px;
+}
+
+.w-icon {
+  width: 15px;
+}
+
+.btn {
+  font-weight: 400;
+  margin-left: 10px;
+}
+
+.w-95px {
+  width: 95px;
+}
+
+.actions-select {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.container {
+  box-shadow: 0px 10px 35px 0px rgba(56, 71, 109, 0.075);
+}
+th,
+td {
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: #0098da;
+}
+
+.custom-modal-dialog {
+  max-width: 650px;
+  height: 400px;
+  width: 75%;
+  overflow: hidden;
+}
+
+.custom-modal-content {
+  height: 455px;
+}
+.form-inputs {
+  overflow-y: scroll;
+  height: 215px;
+  padding-bottom: 35px;
+}
+
+.me-10 {
+  margin-right: 130px;
+}
+
+/*  */
+
+.custom-cancel-icon {
+  width: 65px;
+  height: 65px;
+}
+
+.custom-content-class {
+  font-size: 14.5px;
+}
+
+.swal2-icon {
+  width: 20px;
+}

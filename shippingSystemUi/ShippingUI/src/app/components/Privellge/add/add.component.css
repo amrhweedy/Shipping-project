@@ -1,0 +1,90 @@
+.w-250px {
+  width: 250px;
+}
+
+.w-130px {
+  width: 130px;
+}
+
+.emp-name {
+  color: #3f4254;
+  font-size: 14px;
+}
+
+td,
+th {
+  color: #7e8299;
+  font-size: 14px;
+  padding: 25px 0px 25px 15px;
+  font-weight: 500;
+}
+
+span {
+  color: #f1416c;
+  font-size: 12.5px;
+  padding-top: 3px;
+  margin-left: 2px;
+  display: block;
+}
+.form-control-solid {
+  background-color: #f5f8fa;
+  border-color: #f5f8fa;
+  color: #5e6278;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-back:hover {
+  background-color: #5e6278;
+}
+
+th,
+td {
+  border-style: dashed;
+}
+
+.w-icon {
+  width: 15px;
+}
+
+.btn {
+  font-weight: 400;
+}
+
+.btn:hover {
+  background-color: #0098da;
+}
+
+.active,
+.locked {
+  padding: 1.2px 6px;
+  border-radius: 2px;
+}
+
+.mx-9 {
+  margin: 10px 110px;
+}
+
+.w-95px {
+  width: 95px;
+}
+
+.actions-select {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.container {
+  box-shadow: 0px 10px 35px 0px rgba(56, 71, 109, 0.075);
+}
+
+input::placeholder {
+  color: #5e6278;
+}
+
+::ng-deep .mat-paginator-range-label {
+  display: none;
+}
+
+.mat-mdc-paginator-page-size {
+  margin-right: 800px;
+}

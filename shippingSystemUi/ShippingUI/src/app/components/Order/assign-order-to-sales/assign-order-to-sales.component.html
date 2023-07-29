@@ -1,0 +1,22 @@
+<h2 mat-dialog-title>Assign Order to Sales Representative</h2>
+<mat-dialog-content>
+  <mat-form-field
+    [formGroup]="assignOrderForm"
+    (ngSubmit)="Assign()"
+    class="w-100"
+  >
+    <mat-label>Sales Representative</mat-label>
+    <mat-select formControlName="salesId">
+      <option value="">-- Select Sales --</option>
+      <mat-option
+        *ngFor="let sales of salesList"
+        [value]="sales.salesRepresentativeId"
+        >{{ sales.name }}</mat-option
+      >
+    </mat-select>
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions class="justify-content-center">
+  <button mat-button (click)="cancel()">Cancel</button>
+  <button mat-button color="primary" (click)="Assign()">Assign</button>
+</mat-dialog-actions>
